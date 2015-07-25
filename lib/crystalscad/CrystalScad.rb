@@ -35,31 +35,31 @@ module CrystalScad
 
 	class Rotate < Transformation
 		def to_rubyscad
-			return RubyScadBridge.new.rotate(@args).gsub('"','')		
+			return RubyScadBridge.new.rotate(rounded_args).gsub('"','')		
 		end	
 	end
 
  	class Translate < Transformation
 		def to_rubyscad
-			return RubyScadBridge.new.translate(@args).gsub('"','')		
+			return RubyScadBridge.new.translate(rounded_args).gsub('"','')		
 		end	
 	end
 	
  	class Mirror < Transformation
 		def to_rubyscad
-			return RubyScadBridge.new.mirror(@args)		
+			return RubyScadBridge.new.mirror(rounded_args)		
 		end	
 	end
 	
 	class Scale < Transformation
 		def to_rubyscad
-			return RubyScadBridge.new.scale(@args)		
+			return RubyScadBridge.new.scale(rounded_args)		
 		end
 	end
 	
 	class Cylinder < Primitive
 		def to_rubyscad	
-			return RubyScadBridge.new.cylinder(@args)		
+			return RubyScadBridge.new.cylinder(rounded_args)		
 		end	
 	end
 
@@ -125,7 +125,7 @@ module CrystalScad
 		end
 	
 		def to_rubyscad
-			return RubyScadBridge.new.cube(@args)		
+			return RubyScadBridge.new.cube(rounded_args)		
 		end	
 	end
 
@@ -146,7 +146,7 @@ module CrystalScad
 	
 	class Sphere < Primitive
 		def to_rubyscad	
-			return RubyScadBridge.new.sphere(@args)		
+			return RubyScadBridge.new.sphere(rounded_args)		
 		end	
 	end
 
@@ -156,7 +156,7 @@ module CrystalScad
 		
 	class Polyhedron < Primitive
 		def to_rubyscad	
-			return RubyScadBridge.new.polyhedron(@args)		
+			return RubyScadBridge.new.polyhedron(rounded_args)		
 		end			
 	end
 
@@ -178,7 +178,7 @@ module CrystalScad
 	  end
 
 		def to_rubyscad
-			return RubyScadBridge.new.square(@args)		
+			return RubyScadBridge.new.square(rounded_args)		
 		end			
 		
 		def center_xy
@@ -218,7 +218,7 @@ module CrystalScad
 
 	class Circle < Primitive
 		def to_rubyscad
-			return RubyScadBridge.new.circle(@args)		
+			return RubyScadBridge.new.circle(rounded_args)		
 		end			
 	end
 
@@ -228,7 +228,7 @@ module CrystalScad
 
 	class Polygon < Primitive
 		def to_rubyscad
-			return RubyScadBridge.new.polygon(@args)		
+			return RubyScadBridge.new.polygon(rounded_args)		
 		end			
 	end
 

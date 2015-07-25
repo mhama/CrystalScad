@@ -8,7 +8,26 @@ module CrystalScad
 			if @args[0].kind_of? Hash
 				@args = @args[0]			
 			end		
-		end		
+		end
+
+		def rounded_args args=@args
+			case args
+			when Hash
+				args.each_with_object({}) {|(k,v), hash| hash[k] = rounded_args(v)}
+			when Array
+				args.map{|i| rounded_args(i)}
+			else
+				rounded_value args
+			end
+		end
+
+		def rounded_value value
+			if value.is_a? Float
+				value.round(9) # rounding to nearest digit, to cut floating point error
+			else
+				value
+			end
+		end
 
 		def walk_tree
 			res = ""			
